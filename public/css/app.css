@@ -1,0 +1,16 @@
+
+.content-100{
+    margin-left: 0rem !important;
+}
+.container-fluid{
+    width: 100% !important; 
+    padding: 0 !important;
+    height: 100% !important;
+}
+.content-wrapper>.content {
+    padding: 0;
+}
+.video-full{
+    width: 100vw;
+    height: 100vh;
+}
