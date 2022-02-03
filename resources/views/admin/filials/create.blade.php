@@ -35,7 +35,7 @@
 @stop
 
 @section('js')
-<script src="/vendor/laravel-filemanager/js/stand-alone-button.js">    
+<script src={{url("/vendor/laravel-filemanager/js/stand-alone-button.js")}}>    
 </script>
 <script>
     $('#lfm').filemanager('file');
