@@ -18,6 +18,8 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 Route::get('webplayer/{filial}/{tv}','WebPlayerController@play')->name('webplayer.play');
+Route::get('webplayer/tempo/{filial}/{tv}/{latitude?}/{longitude?}','WebPlayerController@tempo')->name('webplayer.tempo');
+
 Route::resource('webplayer', WebPlayerController::class);
 
 
