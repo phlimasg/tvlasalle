@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Perfil;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class PerfilSeed extends Seeder
 {
@@ -29,6 +31,12 @@ class PerfilSeed extends Seeder
         Perfil::create([
             'nome' => 'Usuário',
             'descricao' => 'Cria posts de acordo com o pacote escolhido.'
+        ]);
+
+        User::create([
+            'name' => 'Raphael Oliveira',
+            'email' => 'raphael.oliveira@lasalle.org.br',
+            'password' => bcrypt(Str::random(15))
         ]);
             
     }
