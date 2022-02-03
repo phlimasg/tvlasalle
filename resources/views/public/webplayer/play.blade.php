@@ -21,13 +21,13 @@ Config::set('adminlte.classes_content','container-fluid');
     <div class="col-md-2 pl-2 p-0 text-center" id="mensagem">
         <div class="row">
             <div class="col-md-12">
-                <img src="{{ asset('images/logo.png') }}" alt="" srcset="" class="img-fluid p-4"
+                <img src="{{ url('images/logo.png') }}" alt="" srcset="" class="img-fluid p-4"
                     style="margin-bottom: -35px">
             </div>
         </div>
         <div class="row pt-5 mt-1 pb-5">
             <div class="col-md-12">
-                <img src="{{ asset('images/tempo/0.png') }}" alt="" srcset="" class="img-fluid pl-2" id="img_tempo">
+                <img src="{{ url('images/tempo/0.png') }}" alt="" srcset="" class="img-fluid pl-2" id="img_tempo">
                 <label for="" id="lbl_sub" style="float: right; margin-top: -65px; font-size: .8em;" class="mr-2">...</label>
                 <label id="lbl_tempo" style="font-size: 1.3em; margin-top: -35px;">Carregando
                     previsão...</label>
@@ -150,7 +150,7 @@ Config::set('adminlte.classes_content','container-fluid');
 
 @section('css')
 <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
-<link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+<link href="{{ url('css/app.css') }}" rel="stylesheet" />
 @stop
 
 @section('js')
@@ -158,7 +158,7 @@ Config::set('adminlte.classes_content','container-fluid');
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
-<script src="{{ asset('vendor/videojs-playlist/dist/videojs-playlist.js') }}"></script>
+<script src="{{ url('vendor/videojs-playlist/dist/videojs-playlist.js') }}"></script>
 
 
 <script>
@@ -169,7 +169,7 @@ Config::set('adminlte.classes_content','container-fluid');
             src: '{{$i->Post->video_url}}',
             type: 'video/mp4'
         }],
-        poster: '{{asset("images/logo.png")}}',
+        poster: '{{url("images/logo.png")}}',
         },
         @endforeach 
          
@@ -225,7 +225,7 @@ Config::set('adminlte.classes_content','container-fluid');
         
         $.get(url, function(data, status){
             console.log(url,data["results"]["img_id"],status);
-            $('#img_tempo').attr("src","{{asset('images/tempo/')}}/"+ data["results"]["img_id"] +".png");
+            $('#img_tempo').attr("src","{{url('images/tempo/')}}/"+ data["results"]["img_id"] +".png");
             $("#lbl_tempo").text(data["results"]["forecast"][0]["description"]);
             $("#lbl_sub").text("Min.: "+ data["results"]["forecast"][0]["min"] + "º - Max.: " + data["results"]["forecast"][0]["max"] + "º");            
             $("#lbl_local").html( '<i class="fa fa-map-marker"></i> '+ data["results"]["city"]);
