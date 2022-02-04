@@ -118,21 +118,22 @@ Config::set('adminlte.classes_content','container-fluid');
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         @php($active = true)                
-                        @foreach ($news->articles as $i)
+                        @foreach ($news as $i)
+                        
                             <div class="carousel-item @if ($active == true) active @endif">  
                                 <div class="row">
-                                    <div class="col-md-4 m-0 p-0" style="background-image: url('{{$i->urlToImage}}'); background-size: cover; background-position: center;">
+                                    <div class="col-md-4 m-0 p-0" style="background-image: url('{{$i["imagem"]}}'); background-size: cover; background-position: center;">
                                         <div style="background: rgba(255, 255, 255, 0.5); width: 100%; height: 100%; max-height: 250px" class="m-0 p-2 text-center">
-                                            <img src="{{$i->urlToImage}}" class="img-fluid align-middle" style="max-height: 250px">
+                                            <img src="{{$i['imagem']}}" class="img-fluid align-middle" style="max-height: 250px">
                                         </div>
                                     </div>
                                     <div class="col-md-6 p-3">
-                                        <h1>{{$i->title}}</h1>
-                                        <!-- <p>{{$i->description}}</p>-->
+                                        <h1>{{$i["titulo"]}}</h1>
+                                        <p>{{$i["descricao"]}}</p>
                                         <h3 class="mt-2">Escaneie ao lado e leia a Matéria:</h3>
                                     </div>
                                     <div class="col-md-2 text-center p-1">
-                                        {{ QrCode::margin(2)->size(10)->generate($i->url)}}
+                                        {{ QrCode::margin(2)->size(10)->generate($i["link"])}}
                                     </div>
                                 </div>                      
                             </div>
@@ -217,7 +218,7 @@ Config::set('adminlte.classes_content','container-fluid');
 
     setInterval(function () {
         location.reload();
-    }, 72000);
+    }, 60*60000);
 </script>
 
 
