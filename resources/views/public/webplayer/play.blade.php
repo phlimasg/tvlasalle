@@ -163,7 +163,16 @@ Config::set('adminlte.classes_content','container-fluid');
 
 <script>
     var list = [
-        @foreach ($posts as $i)        
+        @foreach ($posts as $i)      
+            @if(sizeof($posts) == 1)  
+            {
+            sources: [{
+                src: '{{$i->Post->video_url}}',
+                type: 'video/mp4'
+            }],
+            poster: '{{url("images/logo.png")}}',
+            },
+            @endif
         {
         sources: [{
             src: '{{$i->Post->video_url}}',
@@ -205,6 +214,10 @@ Config::set('adminlte.classes_content','container-fluid');
         $("#lbl_hora").text(hora+":"+min+":"+seconds);
         $("#lbl_dt").text(dia+"/"+mes+"/"+ano);      
     }, 1000);
+
+    setInterval(function () {
+        location.reload();
+    }, 72000);
 </script>
 
 
