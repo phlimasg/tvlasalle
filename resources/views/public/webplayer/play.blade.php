@@ -123,9 +123,11 @@ Config::set('adminlte.classes_content','container-fluid');
                             <div class="carousel-item @if ($active == true) active @endif">  
                                 <div class="row">
                                     <div class="col-md-4 m-0 p-0" style="background-image: url('{{$i["imagem"]}}'); background-size: cover; background-position: center;">
-                                        <div style="background: rgba(255, 255, 255, 0.5); width: 100%; height: 100%; max-height: 250px" class="m-0 p-2 text-center">
-                                            <img src="{{$i['imagem']}}" class="img-fluid align-middle" style="max-height: 250px">
+                                    
+                                        <div style="background: rgba(255, 255, 255, 0.4); width: 100%; height: 100%; " class="m-0 p-2 text-center">
+                                            <img src="{{$i['imagem']}}" class="img-fluid align-middle" style="height: 100%">
                                         </div>
+                                    
                                     </div>
                                     <div class="col-md-6 p-3">
                                         <h1>{{$i["titulo"]}}</h1>
