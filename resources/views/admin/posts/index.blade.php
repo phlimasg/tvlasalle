@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-12">
         <a href="{{ route('post.create',['filial'=>$filial]) }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Novo Post</a>
-        <h3>Listagem de posts</h3>
+        <h3>Listagem de posts</h3>        
     </div>
 </div>
 
@@ -43,7 +43,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($posts as $i)
+                        @foreach ($posts as $i)                                                                        
+                        @php
+                        @endphp
                         <tr class="@if ($i->tipo == 'Patrocinado') bg-success @endif">
                             <td>{{$i->id}}</td>
                             <td style="max-width: 300px" >
@@ -104,9 +106,9 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body">                                    
                                 <video width="100%" controls preload="auto" height="450px">
-                                    <source src="{{$i->video_url}}" type="video/mp4">
+                                    <source src="{{url($i->video_url)}}" type="video/mp4">
                                     Seu navegador não suporta esse recurso. Utilize o Google Chrome.
                                 </video>
                                 </div>

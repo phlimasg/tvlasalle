@@ -8,6 +8,7 @@ use App\Models\Tv;
 use DOMDocument;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WebPlayerController extends Controller
 {
@@ -169,10 +170,13 @@ class WebPlayerController extends Controller
         $posts = $filial->Tvs()->where('url', $tv_url)->where('ativo', 1)->first()
             ->PostTv()->whereIn(
                 'post_id',
-
                 Post::select('id')->where('ativo', 1)->where('user_autorizacao', '<>', null)->where('filial_id', $filial->id)->get()
-            )->get();
-
+            )->get();        
+        
+        foreach ($posts as $i) {
+            if(Storage::disk('public')->exists($i->Post->video_url) == false) 
+                Storage::disk('public')->put($i->Post->video_url,Storage::disk('sftp')->get($i->Post->video_url));
+        }
 
         return view('public.webplayer.play', [
             'filial' => $filial,

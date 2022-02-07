@@ -78,9 +78,9 @@ return [
             'password' => env('FTP_PASSWORD'),
         
             // Settings for SSH key based authentication with encryption password...
-            'privateKey' => env('FTP_PRIVATE_KEY'),
+            //'privateKey' => env('FTP_PRIVATE_KEY'),
             //'password' => env('FTP_PASSWORD'),
-        
+            //'url' => env('APP_URL'),
             // Optional SFTP Settings...
             'port' => env('FTP_PORT', 22),
             'root' => env('FTP_ROOT'),

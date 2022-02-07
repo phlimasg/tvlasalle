@@ -170,7 +170,7 @@ Config::set('adminlte.classes_content','container-fluid');
             @if(sizeof($posts) == 1)  
             {
             sources: [{
-                src: '{{$i->Post->video_url}}',
+                src: '{{asset($i->Post->video_url)}}',
                 type: 'video/mp4'
             }],
             poster: '{{url("images/logo.png")}}',

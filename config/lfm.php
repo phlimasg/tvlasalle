@@ -26,7 +26,7 @@ return [
     |
      */
 
-    'allow_private_folder'     => true,
+    'allow_private_folder'     => false,
 
     // Flexible way to customize client folders accessibility
     // If you want to customize client folders, publish tag="lfm_handler"
@@ -90,11 +90,11 @@ return [
     |--------------------------------------------------------------------------
      */
     'driver'                   => 'sftp',
-    'create_folder_mode' => 0755,
-    'create_file_mode' => 0644,
-    'should_change_file_mode' => true,
-
+    
     'disk'                     => 'sftp',
+    'create_folder_mode'       => 0755,
+    'create_file_mode'         => 0755,
+    //'should_change_file_mode' => true,
 
     'rename_file'              => false,
 
