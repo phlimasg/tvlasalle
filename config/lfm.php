@@ -89,8 +89,12 @@ return [
     | Upload / Validation
     |--------------------------------------------------------------------------
      */
+    'driver'                   => 'sftp',
+    'create_folder_mode' => 0755,
+    'create_file_mode' => 0644,
+    'should_change_file_mode' => true,
 
-    'disk'                     => 'public',
+    'disk'                     => 'sftp',
 
     'rename_file'              => false,
 

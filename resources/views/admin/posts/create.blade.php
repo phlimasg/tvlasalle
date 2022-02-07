@@ -13,7 +13,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h3>Adicionar post</h3>
+    <h3>Adicionar post</h3>    
 @stop
 
 @section('content')

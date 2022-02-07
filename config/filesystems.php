@@ -62,10 +62,28 @@ return [
             'password' => env('FTP_PASSWORD'),
         
             // Optional FTP Settings...
-            // 'port' => env('FTP_PORT', 21),
-            'root' => storage_path(env('FTP_ROOT')),
-            // 'passive' => true,
+            //'port' => env('FTP_PORT', 21),
+            //'root' =>env('FTP_ROOT'),
+            //'passive' => true,
             // 'ssl' => true,
+            // 'timeout' => 30,
+        ],
+
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => env('FTP_HOST'),
+        
+            // Settings for basic authentication...
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+        
+            // Settings for SSH key based authentication with encryption password...
+            'privateKey' => env('FTP_PRIVATE_KEY'),
+            //'password' => env('FTP_PASSWORD'),
+        
+            // Optional SFTP Settings...
+            'port' => env('FTP_PORT', 22),
+            'root' => env('FTP_ROOT'),
             // 'timeout' => 30,
         ],
     ],
